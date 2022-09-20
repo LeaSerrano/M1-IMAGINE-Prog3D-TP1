@@ -60,45 +60,42 @@ struct Mesh {
     std::vector<unsigned int> triangleArray;
 
     void buildVertexArray() {
-        this->positionArray.clear();
-        for(unsigned int i = 0 ; i < this->vertices.size() ; i++) {
-            this->positionArray.push_back(this->vertices[i][0]);
-            this->positionArray.push_back(this->vertices[i][1]);
-            this->positionArray.push_back(this->vertices[i][2]);
+        positionArray.clear();
+        for(unsigned int i = 0 ; i < vertices.size() ; i++) {
+            positionArray.push_back(vertices[i][0]);
+            positionArray.push_back(vertices[i][1]);
+            positionArray.push_back(vertices[i][2]);
         }
     }
 
     void buildTriangleArray() {
-        this->triangleArray.clear();
-        for(unsigned int i = 0 ; i < this->triangles.size() ; i++) {
-            this->triangleArray.push_back(this->triangles[i][0]);
-            this->triangleArray.push_back(this->triangles[i][1]);
-            this->triangleArray.push_back(this->triangles[i][2]);
+        triangleArray.clear();
+        for(unsigned int i = 0 ; i < triangles.size() ; i++) {
+            triangleArray.push_back(triangles[i][0]);
+            triangleArray.push_back(triangles[i][1]);
+            triangleArray.push_back(triangles[i][2]);
         }
     }
 
     std::vector<float> normalArray;
 
     void buildNormalArray() {
-        this->normalArray.clear();
-        for(unsigned int i = 0 ; i < this->normals.size() ; i++) {
-            this->normalArray.push_back(this->normals[i][0]);
-            this->normalArray.push_back(this->normals[i][1]);
-            this->normalArray.push_back(this->normals[i][2]);
+        normalArray.clear();
+        for(unsigned int i = 0 ; i < normals.size() ; i++) {
+            normalArray.push_back(normals[i][0]);
+            normalArray.push_back(normals[i][1]);
+            normalArray.push_back(normals[i][2]);
         }
     }
 
     std::vector<float> colorArray;
 
     void buildColorArray() {
-        this->colorArray.clear();
-        for(unsigned int i = 0 ; i < this->vertices.size() ; i++) {
-            /*this->colorArray.push_back(this->vertices[i][0]);
-            this->colorArray.push_back(this->vertices[i][1]);
-            this->colorArray.push_back(this->vertices[i][2]);*/
-            this->colorArray.push_back(0.5);
-            this->colorArray.push_back(0.1);
-            this->colorArray.push_back(0.9);
+        colorArray.clear();
+        for(unsigned int i = 0 ; i < normals.size() ; i++) {
+            colorArray.push_back(normals[i][0]);
+            colorArray.push_back(normals[i][1]);
+            colorArray.push_back(normals[i][2]);
         }
     }
     //
