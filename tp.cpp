@@ -56,8 +56,8 @@ struct Mesh {
     std::vector< Vec3 > normals;
     std::vector< Triangle > triangles;
     //
+
     std::vector<float> positionArray;
-    std::vector<unsigned int> triangleArray;
 
     void buildVertexArray() {
         positionArray.clear();
@@ -67,6 +67,8 @@ struct Mesh {
             positionArray.push_back(vertices[i][2]);
         }
     }
+
+    std::vector<unsigned int> triangleArray;
 
     void buildTriangleArray() {
         triangleArray.clear();
@@ -93,11 +95,12 @@ struct Mesh {
     void buildColorArray() {
         colorArray.clear();
         for(unsigned int i = 0 ; i < normals.size() ; i++) {
-            colorArray.push_back(normals[i][0]);
-            colorArray.push_back(normals[i][1]);
-            colorArray.push_back(normals[i][2]);
+            colorArray.push_back(sqrt(normals[i][0]*normals[i][0]));
+            colorArray.push_back(sqrt(normals[i][1]*normals[i][1]));
+            colorArray.push_back(sqrt(normals[i][2]*normals[i][2]));
         }
     }
+
     //
 };
 
@@ -441,6 +444,7 @@ int main (int argc, char ** argv) {
     glVertexPointer(3, GL_FLOAT, 3*sizeof(float), (GLvoid*)(&mesh.positionArray[0]));
     glNormalPointer(GL_FLOAT, 3*sizeof(float), (GLvoid*)(&mesh.normalArray[0]));
     glColorPointer(3, GL_FLOAT, 3*sizeof(float), (GLvoid*)(&mesh.colorArray[0]));
+
     //
 
     glutMainLoop ();
